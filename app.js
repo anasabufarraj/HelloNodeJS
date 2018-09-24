@@ -5,16 +5,13 @@
 const express = require('express');
 
 const app = express();
+app.set('view engine', 'ejs'); // set 'ejs' for express
+
 const hostname = 'localhost';
 const port = 3000;
 
-// routes
 app.get('/', (req, res) => {
   res.sendFile(`${__dirname}/index.html`);
-});
-
-app.get('/search', (req, res) => {
-  res.sendFile(`${__dirname}/search.html`);
 });
 
 app.get('/profile', (req, res) => {
@@ -22,7 +19,16 @@ app.get('/profile', (req, res) => {
 });
 
 app.get('/profile/:id', (req, res) => {
-  res.send(`My Profile: ${req.params.id}`);
+  // TODO: query user data from database
+  let data = {
+    id: req.params.id,
+    firstName: 'John',
+    lastName: 'Peterson',
+    age: 23,
+    active: true,
+    interests: ['Design', 'Web', 'Acting']
+  };
+  res.render('profile', { data: data }); // <= views/profile.ejs
 });
 
 app.get('*', (req, res) => {
