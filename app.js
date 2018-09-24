@@ -3,36 +3,31 @@
 // September 1, 2018
 
 const express = require('express');
-const fs = require('fs');
 
 const app = express();
 const hostname = 'localhost';
 const port = 3000;
-const readStream = {
-  home: fs.createReadStream('./index.html'),
-  search: fs.createReadStream('./search.html'),
-  docs: fs.createReadStream('./docs.html'),
-  noMatch: fs.createReadStream('./noMatch.html')
-  // express.js automatically figure content-type
-};
 
-// define routes
+// routes
 app.get('/', (req, res) => {
-  readStream.home.pipe(res);
+  res.sendFile(`${__dirname}/index.html`);
 });
 
 app.get('/search', (req, res) => {
-  readStream.search.pipe(res);
+  res.sendFile(`${__dirname}/search.html`);
 });
 
-app.get('/docs', (req, res) => {
-  readStream.docs.pipe(res);
+app.get('/profile', (req, res) => {
+  res.sendFile(`${__dirname}/profile.html`);
 });
 
-app.get('/404', (req, res) => {
-  readStream.noMatch.pipe(res);
+app.get('/profile/:id', (req, res) => {
+  res.send(`My Profile: ${req.params.id}`);
 });
 
-// listen to server
+app.get('*', (req, res) => {
+  res.sendFile(`${__dirname}/404.html`);
+});
+
 app.listen(port);
 console.log(`Server running at http://${hostname}:${port}`);
