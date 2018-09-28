@@ -1,8 +1,6 @@
 {
-  "name": "hellonodejs",
-  "version": "1.0.0",
-  "description": "Node.js Training Project",
   "main": "app.js",
+  "name": "hellonodejs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,16 +8,20 @@
     "type": "git",
     "url": "git+https://github.com/anasabufarraj/HelloNodeJS.git"
   },
-  "author": "Anas Abu Farraj",
+  "description": "Node.js Training Project",
+  "version": "1.0.0",
   "license": "ISC",
+  "author": "Anas Abu Farraj",
+  "homepage": "https://github.com/anasabufarraj/HelloNodeJS#readme",
   "bugs": {
     "url": "https://github.com/anasabufarraj/HelloNodeJS/issues"
   },
-  "homepage": "https://github.com/anasabufarraj/HelloNodeJS#readme",
-  "devDependencies": {},
   "dependencies": {
     "ejs": "^2.6.1",
     "express": "^4.16.3",
-    "prettier": "^1.14.3"
+    "pug": "^2.0.3"
+  },
+  "devDependencies": {
+    "body-parser": "^1.18.3"
   }
 }

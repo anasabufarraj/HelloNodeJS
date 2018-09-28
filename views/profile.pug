@@ -1,0 +1,34 @@
+doctype html
+html(lang="en")
+  head
+    title= 'pageTitle'
+    script(type='text/javascript').
+      function foo(a, b) {
+        return a + b
+      }
+      if (title) foo(1, 5)
+  body
+    h1 Pug - node.js Template Engine
+    #container.col
+      if 'youAreUsingPug'
+        p You are amazing
+      else
+        p Get on it!
+      p.
+        Pug is a terse and simple templating language with a
+        strong focus on performance and powerful features.
+
+    //hello
+    div.container
+      div.col
+        div.btn-sm.col-sm.col-md
+
+    .container
+      fieldset
+        form(action='/', method='post')
+          input.ghost-input(name='city', type='text', required='')
+          input.ghost-button(type='submit', value='Get Weather')
+        if weather
+          p= weather
+        if error
+          p= error

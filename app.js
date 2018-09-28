@@ -5,34 +5,14 @@
 const express = require('express');
 
 const app = express();
-app.set('view engine', 'ejs'); // set 'ejs' for express
-
 const hostname = 'localhost';
 const port = 3000;
 
+app.set('view engine', 'pug');
+app.use('/static', express.static('./static'));
+
 app.get('/', (req, res) => {
-  res.sendFile(`${__dirname}/index.html`);
-});
-
-app.get('/profile', (req, res) => {
-  res.sendFile(`${__dirname}/profile.html`);
-});
-
-app.get('/profile/:id', (req, res) => {
-  // TODO: query user data from database
-  let data = {
-    id: req.params.id,
-    firstName: 'John',
-    lastName: 'Peterson',
-    age: 23,
-    active: true,
-    interests: ['Design', 'Web', 'Acting']
-  };
-  res.render('profile', { data: data }); // <= views/profile.ejs
-});
-
-app.get('*', (req, res) => {
-  res.sendFile(`${__dirname}/404.html`);
+  res.render('index', { title: 'Hello Pug' });
 });
 
 app.listen(port);
