@@ -12,7 +12,10 @@ app.set('view engine', 'pug');
 app.use('/static', express.static('./static'));
 
 app.get('/', (req, res) => {
-  res.render('index', { title: 'Hello Pug' });
+  res.render('index', {
+    title: 'Hello Pug',
+    name: 'Pooh'
+  });
 });
 
 app.listen(port);
