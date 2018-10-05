@@ -9,13 +9,15 @@
   <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
   <link rel="icon" href="../favicon.ico" type="image/x-icon" />
   <link rel="stylesheet" href="../static/style.css">
+
 </head>
 <body>
   <h2>Search</h2>
   <form action="">
     <label for="search">Search</label>
-    <input type="search" id="search" value="<%=data.name%>"><br>
-    <input type="text" id="search" value="<%=data.id%>">
+    <%=require('app')%>
+    <input type="search" id="search" value="<%=data.title%>"><br>
+    <input type="text" id="search" value="<%=data.name%>">
   </form>
 </body>
 </html>
