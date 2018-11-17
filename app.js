@@ -2,10 +2,18 @@
 // Node.js Training Project
 // September 1, 2018
 
-const fs = require('fs');
+const newman = require('newman'); // require newman in your project
 
-(function readWrite(src, dest, data) {
-  fs.readFileSync(src, 'utf-8');
-  fs.writeFileSync(dest, data);
-  console.log('Successfully written');
-})(`${__dirname}/data/read.txt`, `${__dirname}/data/write.txt`, 'hello');
+// call newman.run to pass `options` object and wait for callback
+newman.run(
+  {
+    collection: require('./sample-collection.json'),
+    reporters: 'cli'
+  },
+  function(err) {
+    if (err) {
+      throw err;
+    }
+    console.log('collection run complete!');
+  }
+);
