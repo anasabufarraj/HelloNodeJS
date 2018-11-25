@@ -2,18 +2,13 @@
 // Node.js Training Project
 // September 1, 2018
 
-const newman = require('newman'); // require newman in your project
-
-// call newman.run to pass `options` object and wait for callback
-newman.run(
-  {
-    collection: require('./sample-collection.json'),
-    reporters: 'cli'
-  },
-  function(err) {
-    if (err) {
-      throw err;
-    }
-    console.log('collection run complete!');
-  }
-);
+// const fs = require('fs');
+// const zlib = require('zlib');
+// const src = `${__dirname}/data/`;
+//
+// // creating read, write, and compress piped streams
+// const readStream = fs.createReadStream(`${src}read.txt`);
+// const writeStream = fs.createWriteStream(`${src}read.txt.gz`);
+// const gzip = zlib.createGzip();
+//
+// readStream.pipe(gzip).pipe(writeStream);
