@@ -2,13 +2,22 @@
 // Node.js Training Project
 // September 1, 2018
 
-const fs = require('fs');
-const zlib = require('zlib');
-const src = `${__dirname}/data/`;
-const gzip = zlib.createGzip();
+const readline = require('readline');
 
-// creating read, write, and compress piped streams
-const readStream = fs.createReadStream(`${src}read.txt`);
-const writeStream = fs.createWriteStream(`${src}read.txt.gz`); // or .gz
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
 
-readStream.pipe(gzip).pipe(writeStream);
+rl.question('What is your name? ', name => {
+  rl.setPrompt(`Hello ${name}, what year you've been born? `);
+  rl.prompt();
+  rl.on('line', age => {
+    rl.setPrompt(`Hey ${name}, you are ${2018 - age} years old.\n`);
+    rl.prompt();
+    rl.on('close', () => {
+      console.log(`Good Bye...`);
+    });
+    rl.close();
+  });
+});
