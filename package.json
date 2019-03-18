@@ -1,6 +1,6 @@
 {
   "main": "app.js",
-  "name": "hellonodejs",
+  "name": "hello_nodejs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
