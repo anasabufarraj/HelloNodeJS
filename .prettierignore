@@ -1,0 +1,4 @@
+# list of ignoref files
+
+/.idea
+/node_modules
